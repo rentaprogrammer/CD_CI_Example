@@ -5,10 +5,9 @@ on:
   push: { branches: [main] }
 
 env:
-  env:
-    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-    UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+  UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
 jobs:
   build:
