@@ -34,8 +34,9 @@ jobs:
       - name: Build project
         uses: game-ci/unity-builder@v2
         with:
-          targetPlatform: StandaloneWindows64
-          targetPlatform: WebGL
+          targetPlatform: 
+            - StandaloneWindows64
+            - WebGL
           allowDirtyBuild: true
 
       # Output
