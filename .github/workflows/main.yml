@@ -9,8 +9,14 @@ env:
 
 jobs:
   build:
-    name: Build my project 
+    name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:         
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - WebGL # WebGL.
     steps:
       # Checkout
       - name: Checkout repository
@@ -34,9 +40,7 @@ jobs:
       - name: Build project
         uses: game-ci/unity-builder@v2
         with:
-          targetPlatform: 
-            - StandaloneWindows64
-            - WebGL
+          targetPlatform: ${{ matrix.targetPlatform }}
           allowDirtyBuild: true
 
       # Output
