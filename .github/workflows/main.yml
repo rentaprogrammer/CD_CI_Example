@@ -33,9 +33,9 @@ jobs:
       - name: Run sonarqube 
         run: sonar-scanner
              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-             -Dsonar.organization=Christian
+             -Dsonar.organization=rentaprogrammer
              -Dsonar.host.url=https://sonarcloud.io/
-             -Dsonar.projectKey=rentaprogrammer
+             -Dsonar.projectKey=rentaprogrammer_CD_CI_Example
              
       # Cache
       - uses: actions/cache@v2
