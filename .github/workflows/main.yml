@@ -8,6 +8,7 @@ env:
   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
   UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -25,7 +26,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-
+          
+      # Sonar-Scanner
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+      - name: Run sonarqube 
+        run: sonar-scanner
+             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+             -Dsonar.organization=1corp
+             -Dsonar.host.url=https://sonarcloud.io/
+             -Dsonar.projectKey=sonar-scanner-action
+             
       # Cache
       - uses: actions/cache@v2
         with:
