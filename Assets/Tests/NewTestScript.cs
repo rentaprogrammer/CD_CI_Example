@@ -15,4 +15,5 @@ namespace Tests
             Assert.AreEqual("MyGameObject", sut.name);
         }
     }
+
 }
